@@ -15,7 +15,16 @@
 #include <stdio.h>
 #include <gmp.h>
 
+mpz_t* p(mpz_t k){
+
+}
+
+mpz_t* d1(mpz_t k){
+
+}
+
 mpz_t* d(mpz_t k) {
+
 	mpz_t* result = malloc(sizeof(mpz_t));
 	mpz_t i, check;
 	// fprintf(stderr, "d pre init\n");
@@ -35,7 +44,7 @@ mpz_t* d(mpz_t k) {
 			}
 		}
 		mpz_add_ui(i, i, 1);
-		mpz_mul(check, i, i);
+	    mpz_mul(check, i, i);
 	}
 	// fprintf(stderr, "d pre clear\n");
 	mpz_clear(i);
