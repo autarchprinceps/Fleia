@@ -72,11 +72,11 @@ mpz_t* S(mpz_t N) {
 	// fprintf(stderr, "S pre init\n");
 	mpz_init(*result);
 	mpz_init(tmp);
-	mpz_init(i);
+	mpz_init_set_ui(i, 1);
 	mpz_init(j);
 	// fprintf(stderr, "S pre for\n");
 	for(;mpz_cmp(N, i) >= 0; mpz_add_ui(i, i, 1)) {
-		for(;mpz_cmp(N, j) >= 0; mpz_add_ui(j, j, 1)) {
+		for(mpz_set_ui(j, 1);mpz_cmp(N, j) >= 0; mpz_add_ui(j, j, 1)) {
 			mpz_mul(tmp, i, j);
 			mpz_add(*result, *result, *d(tmp));
 		}
