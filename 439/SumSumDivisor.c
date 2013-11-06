@@ -13,7 +13,6 @@
  */
 #include <stdlib.h>
 #include <stdio.h>
-#include <math.h>
 #include <gmp.h>
 
 mpz_t* d(mpz_t k) {
@@ -67,28 +66,41 @@ mpz_t* d(mpz_t k) {
 }*/
 
 mpz_t* S(mpz_t N) {
-	mpz_t* result = malloc(sizeof(mpz_t));
+	const int count = omp_get_num_threads();
+	mpz_t* result = malloc(sizeof(mpz_t) * count);
 	mpz_t tmp, i, j;
 	// fprintf(stderr, "S pre init\n");
-	mpz_init(*result);
+	#pragma omp parallel for
+	for(int nu = 0; nu < count; nu++) {
+		mpz_init(result[nu]);
+	}
 	mpz_init(tmp);
 	mpz_init_set_ui(i, 1);
 	mpz_init(j);
 	// fprintf(stderr, "S pre for\n");
+	#pragma omp parallel for
 	for(;mpz_cmp(N, i) >= 0; mpz_add_ui(i, i, 1)) {
+		const int thread_id = omp_get_thread_num();
 		for(mpz_set_ui(j, 1);mpz_cmp(N, j) >= 0; mpz_add_ui(j, j, 1)) {
 			mpz_mul(tmp, i, j);
-			mpz_add(*result, *result, *d(tmp));
+			mpz_add(result[thread_id], result[thread_id], *d(tmp));
 		}
 	}
 	// fprintf(stderr, "S pre clear\n");
 	mpz_clear(tmp);
 	mpz_clear(i);
 	mpz_clear(j);
-	return result;
+	mpz_t* composition = malloc(sizeof(mpz_t));
+	mpz_init(*composition);
+	for(int nz = 0; nz < count; nz++) {
+		mpz_add(*composition, *composition, result[nz]);
+		mpz_clear(result[nz]);
+	}
+	return composition;
 }
 
 int main() {
+    omp_set_num_threads(4);
 	/* printf("%lu\n", d(1) + d(2) + d(3) + d(2) + d(4) + d(6) + d(3) + d(6) + d(9));
 	printf("%lu\n", S(3));
 	printf("%lu\n", S(1000));
