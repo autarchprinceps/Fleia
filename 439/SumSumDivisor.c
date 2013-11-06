@@ -19,15 +19,15 @@
 mpz_t* d(mpz_t k) {
 	mpz_t* result = malloc(sizeof(mpz_t));
 	mpz_t i, check;
-	fprintf(stderr, "d pre init\n");
+	// fprintf(stderr, "d pre init\n");
 	mpz_init(*result);
 	mpz_init(check);
 	mpz_init_set_ui(i, 1);
-	fprintf(stderr, "d pre for\n");
+	// fprintf(stderr, "d pre for\n");
 	for(;mpz_cmp(k, check) >= 0;) {
 		// result += (k % i) ? 0 : ((i * i == k) ? i : i + k / i);
 		mpz_mod(check, k, i);
-		if(mpz_cmp(check, 0) == 0) {
+		if(mpz_cmp_ui(check, 0) == 0) {
 			mpz_mul(check, i, i);
 			mpz_add(*result, *result, i);
 			if(mpz_cmp(check, k) != 0) {
@@ -38,7 +38,7 @@ mpz_t* d(mpz_t k) {
 		mpz_add_ui(i, i, 1);
 		mpz_mul(check, i, i);
 	}
-	fprintf(stderr, "d pre clear\n");
+	// fprintf(stderr, "d pre clear\n");
 	mpz_clear(i);
 	mpz_clear(check);
 	return result;
@@ -69,19 +69,19 @@ mpz_t* d(mpz_t k) {
 mpz_t* S(mpz_t N) {
 	mpz_t* result = malloc(sizeof(mpz_t));
 	mpz_t tmp, i, j;
-	fprintf(stderr, "S pre init\n");
+	// fprintf(stderr, "S pre init\n");
 	mpz_init(*result);
 	mpz_init(tmp);
 	mpz_init(i);
 	mpz_init(j);
-	fprintf(stderr, "S pre for\n");
+	// fprintf(stderr, "S pre for\n");
 	for(;mpz_cmp(N, i) >= 0; mpz_add_ui(i, i, 1)) {
 		for(;mpz_cmp(N, j) >= 0; mpz_add_ui(j, j, 1)) {
 			mpz_mul(tmp, i, j);
 			mpz_add(*result, *result, *d(tmp));
 		}
 	}
-	fprintf(stderr, "S pre clear\n");
+	// fprintf(stderr, "S pre clear\n");
 	mpz_clear(tmp);
 	mpz_clear(i);
 	mpz_clear(j);
@@ -94,26 +94,45 @@ int main() {
 	printf("%lu\n", S(1000));
 	printf("%lu\n", S(pow(10, 5)) % (unsigned long)pow(10, 9));
 	printf("%lu\n", S(pow(10, 11)) % (unsigned long)pow(10, 9)); */
-	mpz_t ubergabe, tmp;
-	fprintf(stderr, "main pre init\n");
+	mpz_t ubergabe, tmp, result;
+	// fprintf(stderr, "main pre init\n");
 	mpz_init(ubergabe);
-	fprintf(stderr, "main dur init\n");
+	// fprintf(stderr, "main dur init\n");
 	mpz_init(tmp);
-	fprintf(stderr, "main post init\n");
+	mpz_init(result);
+	
+	mpz_set_ui(ubergabe, 1);
+	mpz_set(result, *d(ubergabe));
+	mpz_set_ui(ubergabe, 2);
+	mpz_add(result, result, *d(ubergabe));
+	mpz_add(result, result, *d(ubergabe));
 	mpz_set_ui(ubergabe, 3);
-	fprintf(stderr, "main pre S(3)\n");
-	gmp_printf("%Z\n", *S(ubergabe));
+	mpz_add(result, result, *d(ubergabe));
+	mpz_add(result, result, *d(ubergabe));
+	mpz_set_ui(ubergabe, 4);
+	mpz_add(result, result, *d(ubergabe));
+	mpz_set_ui(ubergabe, 6);
+	mpz_add(result, result, *d(ubergabe));
+	mpz_add(result, result, *d(ubergabe));
+	mpz_set_ui(ubergabe, 9);
+	mpz_add(result, result, *d(ubergabe));
+	gmp_printf("%Zd\n", result);
+
+	// fprintf(stderr, "main post init\n");
+	mpz_set_ui(ubergabe, 3);
+	// fprintf(stderr, "main pre S(3)\n");
+	gmp_printf("%Zd\n", *S(ubergabe));
 	mpz_set_ui(ubergabe, 1000);
-	fprintf(stderr, "main pre S(1000)\n");
-	gmp_printf("%Z\n", *S(ubergabe));
+	// fprintf(stderr, "main pre S(1000)\n");
+	gmp_printf("%Zd\n", *S(ubergabe));
 	mpz_ui_pow_ui(ubergabe, 10, 5);
 	mpz_ui_pow_ui(tmp, 10, 9);
 	mpz_mod(ubergabe, *S(ubergabe), tmp);
-	fprintf(stderr, "main pre S(10 hoch 5) mod 10 hoch 9\n");
-	gmp_printf("%Z\n", ubergabe);
+	// fprintf(stderr, "main pre S(10 hoch 5) mod 10 hoch 9\n");
+	gmp_printf("%Zd\n", ubergabe);
 	mpz_ui_pow_ui(ubergabe, 10, 11);
 	mpz_mod(ubergabe, *S(ubergabe), tmp);
-	fprintf(stderr, "main pre S(10 hoch 11) mod 10 hoch 9\n");
-	gmp_printf("%Z\n", ubergabe);
+	// fprintf(stderr, "main pre S(10 hoch 11) mod 10 hoch 9\n");
+	gmp_printf("%Zd\n", ubergabe);
 	return 0;
 }
