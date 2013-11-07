@@ -3,12 +3,11 @@
  *
  *       Filename:  BigInt.cxx
  *
- *    Description:  
+ *    Description:  TODO testing
  *
  *        Created:  07.11.2013 08:29:06
  *
  *         Author:  autarch princeps (), autarch@outlook.com
- *   Organization:  
  *
  * =====================================================================================
  */
@@ -120,5 +119,102 @@ namespace fleiamath {
 		return result;
 	}
 
-	mpz_t value;
+	BigInt operator += (const BigInt& a, const BigInt& b) {
+		return a + b;
+	}
+	BigInt operator += (const BigInt& a, const unsigned long b) {
+		return a + b;
+	}
+	BigInt operator -= (const BigInt& a, const BigInt& b) {
+		return a - b;
+	}
+	BigInt operator -= (const BigInt& a, const unsigned long b) {
+		return a - b;
+	}
+	BigInt operator *= (const BigInt& a, const BigInt& b) {
+		return a * b;
+	}
+	BigInt operator *= (const BigInt& a, const unsigned long b) {
+		return a * b;
+	}
+	BigInt operator /= (const BigInt& a, const BigInt& b) {
+		return a / b;
+	}
+	BigInt operator /= (const BigInt& a, const unsigned long b) {
+		return a / b;
+	}
+	BigInt operator %= (const BigInt& a, const BigInt& b) {
+		return a % b;
+	}
+	BigInt operator %= (const BigInt& a, const unsigned long b) {
+		return a % b;
+	}
+
+	BigInt operator ++ (const BigInt& a) {
+		return a + 1;
+	}
+	BigInt operator -- (const BigInt& a) {
+		return a - 1;
+	}
+	BigInt operator ++ (const BigInt& a, int unused) {
+		return a + 1;
+	}
+	BigInt operator -- (const BigInt& a, int unused) {
+		return a - 1;
+	}
+
+	bool operator == (const BigInt& a, const BigInt& b) {
+		return mpz_cmp(a.value, b.value) == 0;
+	}
+	bool operator == (const BigInt& a, const unsigned long b) {
+		return mpz_cmp_ui(a.value, b) == 0;
+	}
+	bool operator == (const unsigned long a, const BigInt& b) {
+		return mpz_cmp_ui(b.value, a) == 0;
+	}
+	bool operator != (const BigInt& a, const BigInt& b) {
+		return mpz_cmp(a.value, b.value) != 0;
+	}
+	bool operator != (const BigInt& a, const unsigned long b) {
+		return mpz_cmp_ui(a.value, b) != 0;
+	}
+	bool operator != (const unsigned long a, const BigInt& b) {
+		return mpz_cmp_ui(b.value, a) != 0;
+	}
+	bool operator >= (const BigInt& a, const BigInt& b) {
+		return mpz_cmp(a.value, b.value) >= 0;
+	}
+	bool operator >= (const BigInt& a, const unsigned long b) {
+		return mpz_cmp_ui(a.value, b) >= 0;
+	}
+	bool operator >= (const unsigned long a, const BigInt& b) {
+		return mpz_cmp_ui(b.value, a) < 0;
+	}
+	bool operator <= (const BigInt& a, const BigInt& b) {
+		return mpz_cmp(a.value, b.value) <= 0;
+	}
+	bool operator <= (const BigInt& a, const unsigned long b) {
+		return mpz_cmp_ui(a.value, b) <= 0;
+	}
+	bool operator <= (const unsigned long a, const BigInt& b) {
+		return mpz_cmp_ui(b.value, a) > 0;
+	}
+	bool operator < (const BigInt& a, const BigInt& b) {
+		return mpz_cmp(a.value, b.value) < 0;
+	}
+	bool operator < (const BigInt& a, const unsigned long b) {
+		return mpz_cmp_ui(a.value, b) < 0;
+	}
+	bool operator < (const unsigned long a, const BigInt& b) {
+		return mpz_cmp_ui(b.value, a) >= 0;
+	}
+	bool operator > (const BigInt& a, const BigInt& b) {
+		return mpz_cmp(a.value, b.value) > 0;
+	}
+	bool operator > (const BigInt& a, const unsigned long b) {
+		return mpz_cmp_ui(a.value, b) > 0;
+	}
+	bool operator > (const unsigned long a, const BigInt& b) {
+		return mpz_cmp_ui(b.value, a) <= 0;
+	}
 }
