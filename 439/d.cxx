@@ -3,7 +3,7 @@
  *
  *       Filename:  d.cxx
  *
- *    Description:  
+ *    Description:  TODO groxar viel Spaﬂ beim optimieren
  *
  *        Created:  08.11.2013 16:19:06
  *

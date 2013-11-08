@@ -43,7 +43,10 @@ namespace fleiamath {
             friend BigInt& operator %= (BigInt& a, const BigInt& b);
             friend BigInt& operator %= (BigInt& a, const unsigned long b);
             */
-
+			BigInt pow(const BigInt& exponent);
+			BigInt pow(const unsigned long exponent);
+			BigInt sqrt();
+			BigInt root(const unsigned long nth);
 	};
 	BigInt operator + (const BigInt& a, const BigInt& b);
 	BigInt operator * (const BigInt& a, const BigInt& b);

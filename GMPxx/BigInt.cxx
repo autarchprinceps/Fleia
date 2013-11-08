@@ -34,6 +34,30 @@ namespace fleiamath {
 		return result;
 	}
 
+	BigInt BigInt::pow(const BigInt& exponent) {
+		BigInt result = BigInt();
+		mpz_pow(result.value, this->value, exponent.value);
+		return result;
+	}
+	
+	BigInt BigInt::pow(const unsigned long exponent) {
+		BigInt result = BigInt();
+		mpz_pow_ui(result.value, this->value, exponent);
+		return result;
+	}
+
+	BigInt BigInt::sqrt() {
+		BigInt result = BigInt();
+		mpz_sqrt(result.value, this->value);
+		return result;
+	}
+
+	BigInt BigInt::root(const unsigned long nth) {
+		BigInt result = BigInt();
+		mpz_root(result.value, this->value, nth);
+		return result;
+	}
+
 	ostream& operator << (ostream& os, const BigInt& a) {
 		os << (string)a;
 		return os;
