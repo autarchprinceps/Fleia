@@ -31,6 +31,7 @@ namespace fleiamath {
 
             BigInt& operator = (const BigInt& b);
             BigInt& operator = (const unsigned long);
+            /*
 	        friend BigInt& operator += (BigInt& a, const BigInt& b);
             friend BigInt& operator += (BigInt& a, const unsigned long b);
             friend BigInt& operator -= (BigInt& a, const BigInt& b);
@@ -41,6 +42,7 @@ namespace fleiamath {
             friend BigInt& operator /= (BigInt& a, const unsigned long b);
             friend BigInt& operator %= (BigInt& a, const BigInt& b);
             friend BigInt& operator %= (BigInt& a, const unsigned long b);
+            */
 
 	};
 	BigInt operator + (const BigInt& a, const BigInt& b);

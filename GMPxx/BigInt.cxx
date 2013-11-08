@@ -182,16 +182,20 @@ namespace fleiamath {
 	}
 
 	BigInt& operator ++ (BigInt& a) {
-		return a;
+		mpz_add_ui(a.value,a.value,1);
+        return a;
 	}
 	BigInt& operator -- (BigInt& a) {
-		return a;
+		mpz_sub_ui(a.value,a.value,1);
+        return a;
 	}
 	BigInt& operator ++ (BigInt& a, int unused) {
-		return a;
+		mpz_add_ui(a.value,a.value,1);
+        return a;
 	}
 	BigInt& operator -- (BigInt& a, int unused) {
-		return a;
+		mpz_sub_ui(a.value,a.value,1);
+        return a;
 	}
 
 	bool operator == (const BigInt& a, const BigInt& b) {
