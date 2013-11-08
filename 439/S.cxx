@@ -12,6 +12,8 @@
  * =====================================================================================
  */
 
+#include "S.h"
+
 BigInt S(const BigInt N) {
 	BigInt result = BigInt();
 	for(BigInt i = BigInt(1); i <= N; i++) {

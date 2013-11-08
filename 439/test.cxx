@@ -16,6 +16,7 @@
 #include <iostream>
 
 using namespace std;
+using namespace fleiamath;
 
 int main() {
 	cout << (d(BigInt(1)) + d(BigInt(2)) * 2 + d(BigInt(3)) * 2 + d(BigInt(4)) + g(BigInt(6)) * 2 + g(BigInt(9))) << ' ?= 59' << endl; 
