@@ -11,10 +11,12 @@
  *
  * =====================================================================================
  */
-
 #pragma once
+#ifndef d_h
+#define d_h
 #include "../GMPxx/BigInt.cxx"
 
 using namespace fleiamath;
 
 BigInt d(const BigInt N);
+#endif

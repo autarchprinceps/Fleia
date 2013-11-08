@@ -12,6 +12,8 @@
  * =====================================================================================
  */
 #pragma once
+#ifndef bigint_h
+#define bigint_h
 #include <gmp.h>
 #include <stdlib.h>
 #include <string>
@@ -98,3 +100,4 @@ namespace fleiamath {
 	bool operator > (const BigInt& a, const unsigned long b);
 	bool operator > (const unsigned long a, const BigInt& b);
 }
+#endif
