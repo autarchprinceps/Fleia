@@ -11,9 +11,13 @@
  *
  * =====================================================================================
  */
- #pragma once
- 
- #include <gmp.h>
+#pragma once
+#include <gmp.h>
+#include <stdlib.h>
+#include <string>
+#include <iostream>
+
+using namespace std;
 
 namespace fleiamath {
 	class BigInt {
@@ -22,6 +26,8 @@ namespace fleiamath {
 			BigInt(const unsigned long initialValue);
 			~BigInt();
 			mpz_t value;
+			operator string() const;
+			friend ostream& operator << (ostream& os, const BigInt& a);
 	};
 	BigInt operator + (const BigInt& a, const BigInt& b);
 	BigInt operator * (const BigInt& a, const BigInt& b);

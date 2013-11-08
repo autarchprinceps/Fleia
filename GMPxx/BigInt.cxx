@@ -26,6 +26,19 @@ namespace fleiamath {
 		mpz_clear(value);
 	}
 
+	BigInt::operator string() const {
+		char* cstr;
+		gmp_asprintf(&cstr, "%Zd", this->value);
+		string result = string(cstr);
+		free(cstr);
+		return result;
+	}
+
+	ostream& operator << (ostream& os, const BigInt& a) {
+		os << (string)a;
+		return os;
+	}
+
 	BigInt operator + (const BigInt& a, const BigInt& b) {
 		BigInt result = BigInt();
 		mpz_add(result.value, a.value, b.value);
