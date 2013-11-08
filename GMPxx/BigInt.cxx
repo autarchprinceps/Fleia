@@ -33,12 +33,6 @@ namespace fleiamath {
 		free(cstr);
 		return result;
 	}
-
-	BigInt BigInt::pow(const BigInt& exponent) {
-		BigInt result = BigInt();
-		mpz_pow(result.value, this->value, exponent.value);
-		return result;
-	}
 	
 	BigInt BigInt::pow(const unsigned long exponent) {
 		BigInt result = BigInt();
