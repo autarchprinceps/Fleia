@@ -28,6 +28,20 @@ namespace fleiamath {
 			mpz_t value;
 			operator string() const;
 			friend ostream& operator << (ostream& os, const BigInt& a);
+
+            BigInt& operator = (const BigInt& b);
+            BigInt& operator = (const unsigned long);
+	        friend BigInt& operator += (BigInt& a, const BigInt& b);
+            friend BigInt& operator += (BigInt& a, const unsigned long b);
+            friend BigInt& operator -= (BigInt& a, const BigInt& b);
+            friend BigInt& operator -= (BigInt& a, const unsigned long b);
+            friend BigInt& operator *= (BigInt& a, const BigInt& b);
+            friend BigInt& operator *= (BigInt& a, const unsigned long b);
+            friend BigInt& operator /= (BigInt& a, const BigInt& b);
+            friend BigInt& operator /= (BigInt& a, const unsigned long b);
+            friend BigInt& operator %= (BigInt& a, const BigInt& b);
+            friend BigInt& operator %= (BigInt& a, const unsigned long b);
+
 	};
 	BigInt operator + (const BigInt& a, const BigInt& b);
 	BigInt operator * (const BigInt& a, const BigInt& b);
@@ -45,21 +59,21 @@ namespace fleiamath {
 	BigInt operator / (const unsigned long a, const BigInt& b);
 	BigInt operator % (const unsigned long a, const BigInt& b);
 
-	BigInt operator += (const BigInt& a, const BigInt& b);
-	BigInt operator += (const BigInt& a, const unsigned long b);
-	BigInt operator -= (const BigInt& a, const BigInt& b);
-	BigInt operator -= (const BigInt& a, const unsigned long b);
-	BigInt operator *= (const BigInt& a, const BigInt& b);
-	BigInt operator *= (const BigInt& a, const unsigned long b);
-	BigInt operator /= (const BigInt& a, const BigInt& b);
-	BigInt operator /= (const BigInt& a, const unsigned long b);
-	BigInt operator %= (const BigInt& a, const BigInt& b);
-	BigInt operator %= (const BigInt& a, const unsigned long b);
+	BigInt& operator += (BigInt& a, const BigInt& b);
+	BigInt& operator += (BigInt& a, const unsigned long b);
+	BigInt& operator -= (BigInt& a, const BigInt& b);
+	BigInt& operator -= (BigInt& a, const unsigned long b);
+	BigInt& operator *= (BigInt& a, const BigInt& b);
+	BigInt& operator *= (BigInt& a, const unsigned long b);
+	BigInt& operator /= (BigInt& a, const BigInt& b);
+	BigInt& operator /= (BigInt& a, const unsigned long b);
+	BigInt& operator %= (BigInt& a, const BigInt& b);
+	BigInt& operator %= (BigInt& a, const unsigned long b);
 
-	BigInt operator ++ (const BigInt& a);
-	BigInt operator -- (const BigInt& a);
-	BigInt operator ++ (const BigInt& a, int unused);
-	BigInt operator -- (const BigInt& a, int unused);
+	BigInt& operator ++ (BigInt& a);
+	BigInt& operator -- (BigInt& a);
+	BigInt& operator ++ (BigInt& a, int unused);
+	BigInt& operator -- (BigInt& a, int unused);
 
 	bool operator == (const BigInt& a, const BigInt& b);
 	bool operator == (const BigInt& a, const unsigned long b);

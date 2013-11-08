@@ -31,7 +31,7 @@ int main() {
 	cout << a - 3 << endl;
 	cout << a * 3 << endl;
 	cout << a / 3 << endl;
-	cout << a % 3 << endl;
+    cout << a % 3 << endl;
 	cout << 4 + b << endl;
 	cout << 4 - b << endl;
 	cout << 4 * b << endl;
@@ -57,4 +57,11 @@ int main() {
 	cout << (4 >= b) << endl;
 	cout << (4 == b) << endl;
 	cout << (4 != b) << endl;
+    cout << "Assignment" << endl;
+    cout << (a=b) << endl;
+    cout << (a+=b) << endl;
+    cout << (a-=b) << endl;
+    cout << (a*=b) << endl;
+    cout << (a/=b) << endl;
+    cout << (a%=b) << endl;
 }

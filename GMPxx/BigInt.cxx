@@ -132,48 +132,66 @@ namespace fleiamath {
 		return result;
 	}
 
-	BigInt operator += (const BigInt& a, const BigInt& b) {
-		return a + b;
+    BigInt& BigInt::operator = (const BigInt& b) {
+        mpz_set(this->value, b.value);
+        return *this;
+    }
+    BigInt& BigInt::operator = (const unsigned long b) {
+        mpz_set_ui(this->value, b);
+        return *this;
+    }
+	BigInt& operator += (BigInt& a, const BigInt& b) {
+        mpz_add(a.value, a.value, b.value);
+		return a;
 	}
-	BigInt operator += (const BigInt& a, const unsigned long b) {
-		return a + b;
+	BigInt& operator += (BigInt& a, const unsigned long b) {
+        mpz_add_ui(a.value, a.value, b);
+        return a;
 	}
-	BigInt operator -= (const BigInt& a, const BigInt& b) {
-		return a - b;
+	BigInt& operator -= (BigInt& a, const BigInt& b) {
+        mpz_sub(a.value, a.value, b.value);
+		return a;
 	}
-	BigInt operator -= (const BigInt& a, const unsigned long b) {
-		return a - b;
+	BigInt& operator -= (BigInt& a, const unsigned long b) {
+        mpz_sub_ui(a.value, a.value, b);
+		return a;
 	}
-	BigInt operator *= (const BigInt& a, const BigInt& b) {
-		return a * b;
+	BigInt& operator *= (BigInt& a, const BigInt& b) {
+        mpz_mul(a.value, a.value, b.value);
+		return a;
 	}
-	BigInt operator *= (const BigInt& a, const unsigned long b) {
-		return a * b;
+	BigInt& operator *= (BigInt& a, const unsigned long b) {
+        mpz_mul_ui(a.value, a.value, b);
+		return a;
 	}
-	BigInt operator /= (const BigInt& a, const BigInt& b) {
-		return a / b;
+	BigInt& operator /= (BigInt& a, const BigInt& b) {
+        mpz_tdiv_q(a.value, a.value, b.value);
+		return a;
 	}
-	BigInt operator /= (const BigInt& a, const unsigned long b) {
-		return a / b;
+	BigInt& operator /= (BigInt& a, const unsigned long b) {
+        mpz_tdiv_q_ui(a.value, a.value, b);
+		return a;
 	}
-	BigInt operator %= (const BigInt& a, const BigInt& b) {
-		return a % b;
+	BigInt& operator %= (BigInt& a, const BigInt& b) {
+        mpz_mod(a.value, a.value, b.value);
+		return a;
 	}
-	BigInt operator %= (const BigInt& a, const unsigned long b) {
-		return a % b;
+	BigInt& operator %= (BigInt& a, const unsigned long b) {
+        mpz_mod_ui(a.value, a.value, b);
+		return a;
 	}
 
-	BigInt operator ++ (const BigInt& a) {
-		return a + 1;
+	BigInt& operator ++ (BigInt& a) {
+		return a;
 	}
-	BigInt operator -- (const BigInt& a) {
-		return a - 1;
+	BigInt& operator -- (BigInt& a) {
+		return a;
 	}
-	BigInt operator ++ (const BigInt& a, int unused) {
-		return a + 1;
+	BigInt& operator ++ (BigInt& a, int unused) {
+		return a;
 	}
-	BigInt operator -- (const BigInt& a, int unused) {
-		return a - 1;
+	BigInt& operator -- (BigInt& a, int unused) {
+		return a;
 	}
 
 	bool operator == (const BigInt& a, const BigInt& b) {
