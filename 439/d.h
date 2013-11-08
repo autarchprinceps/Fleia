@@ -14,7 +14,7 @@
 #pragma once
 #ifndef d_h
 #define d_h
-#include "../GMPxx/BigInt.cxx"
+#include "../GMPxx/BigInt.h"
 
 using namespace fleiamath;
 
