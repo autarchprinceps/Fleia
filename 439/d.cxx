@@ -16,7 +16,7 @@
 
 BigInt d(const BigInt N) {
 	BigInt sum = BigInt();
-	for(BigInt i = BigInt(1); i * i <= num; i++)
-		sum += (N % i) ? 0 : ((i * i == N) ? i : i + num/i);
+	for(BigInt i = BigInt(1); i * i <= sum; i++)
+		sum += (N % i) ? 0 : ((i * i == N) ? i : i + sum/i);
 	return sum;
 }

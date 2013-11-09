@@ -33,7 +33,10 @@ namespace fleiamath {
 		free(cstr);
 		return result;
 	}
-	
+    /* 
+    BigInt::operator bool() const {
+        return !mpz_size(this->value);
+    }*/
 	BigInt BigInt::pow(const unsigned long exponent) {
 		BigInt result = BigInt();
 		mpz_pow_ui(result.value, this->value, exponent);

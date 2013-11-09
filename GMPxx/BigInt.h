@@ -12,8 +12,7 @@
  * =====================================================================================
  */
 #pragma once
-#ifndef bigint_h
-#define bigint_h
+
 #include <gmp.h>
 #include <stdlib.h>
 #include <string>
@@ -33,18 +32,6 @@ namespace fleiamath {
 
             BigInt& operator = (const BigInt& b);
             BigInt& operator = (const unsigned long);
-            /*
-	        friend BigInt& operator += (BigInt& a, const BigInt& b);
-            friend BigInt& operator += (BigInt& a, const unsigned long b);
-            friend BigInt& operator -= (BigInt& a, const BigInt& b);
-            friend BigInt& operator -= (BigInt& a, const unsigned long b);
-            friend BigInt& operator *= (BigInt& a, const BigInt& b);
-            friend BigInt& operator *= (BigInt& a, const unsigned long b);
-            friend BigInt& operator /= (BigInt& a, const BigInt& b);
-            friend BigInt& operator /= (BigInt& a, const unsigned long b);
-            friend BigInt& operator %= (BigInt& a, const BigInt& b);
-            friend BigInt& operator %= (BigInt& a, const unsigned long b);
-            */
 			BigInt pow(const unsigned long exponent);
 			BigInt sqrt();
 			BigInt root(const unsigned long nth);
@@ -100,4 +87,3 @@ namespace fleiamath {
 	bool operator > (const BigInt& a, const unsigned long b);
 	bool operator > (const unsigned long a, const BigInt& b);
 }
-#endif

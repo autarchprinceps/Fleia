@@ -4,7 +4,7 @@ CXX = clang++
 run: sum
 	./sum
 
-sum: ../GMPxx/BigInt.cxx S.cxx d.cxx test.cxx 
+sum: S.cxx d.cxx test.cxx ../GMPxx/BigInt.cxx 
 	$(CXX) -O3 -lgmp -o $@ $+
 
 sumc: SumSumDivisor.c
