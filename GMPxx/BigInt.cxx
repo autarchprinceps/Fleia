@@ -3,7 +3,7 @@
  *
  *       Filename:  BigInt.cxx
  *
- *    Description:  TODO testing
+ *    Description:  
  *
  *        Created:  07.11.2013 08:29:06
  *
