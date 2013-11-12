@@ -15,6 +15,7 @@
 #ifndef d_h
 #define d_h
 #include "../GMPxx/BigInt.h"
+#include <ecm.h>
 
 using namespace fleiamath;
 

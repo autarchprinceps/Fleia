@@ -13,7 +13,7 @@
  */
 
 #include "S.h"
-#define NUM_THREADS=4
+#define NUM_THREADS = 4
 
 BigInt S(const BigInt N) {
 	BigInt result = BigInt();

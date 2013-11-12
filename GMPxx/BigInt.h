@@ -28,6 +28,7 @@ namespace fleiamath {
 			~BigInt();
 			mpz_t value;
 			operator string() const;
+			// operator bool() const;
 			friend ostream& operator << (ostream& os, const BigInt& a);
 
             BigInt& operator = (const BigInt& b);

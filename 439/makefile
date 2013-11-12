@@ -5,7 +5,7 @@ run: sum
 	./sum
 
 sum: S.cxx d.cxx test.cxx ../GMPxx/BigInt.cxx 
-	$(CXX) -O3 -lgmp -o $@ $+
+	$(CXX) -O3 -lgmp -lecm -o $@ $+
 
 sumc: SumSumDivisor.c
 	$(CC) -std=gnu99 -O3 -lgmp -fopenmp -o $@ $+
