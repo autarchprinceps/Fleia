@@ -69,4 +69,9 @@ int main() {
     cout << (a--) << endl;
     cout << (--a) << endl;
     cout << a << endl;
+	cout << "zero" << endl;
+	cout << (a + 0) << endl;
+	cout << (a * 0) << endl;
+	cout << (a - 0) << endl;
+	cout << (a += 0) << endl;
 }
