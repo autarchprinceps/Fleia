@@ -13,14 +13,19 @@
  */
 
 #include "S.h"
-#define NUM_THREADS = 4
 
 BigInt S(const BigInt N) {
-	BigInt result = BigInt();
-	for(BigInt i = BigInt(1); i <= N; i++) {
-		for(BigInt j = BigInt(1); j <= N; j++) {
-			result += d(i * j);
+	BigInt result[4];
+	for(int i = 0; i < 4; i++)
+		result[i] = BigInt();
+	#pragma omp parallel
+	{
+		int id = omp_get_thread_num();
+		for(BigInt i = BigInt(1); i <= N; i++) { // TODO
+			for(BigInt j = BigInt(1); j <= N; j++) {
+				result[id] += d(i * j);
+			}
 		}
 	}
-	return result;
+	return (result[0] + result[1] + result[2] + result[3]);
 }

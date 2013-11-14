@@ -14,6 +14,7 @@
 #pragma once
 #ifndef s_h
 #define s_h
+#include <omp.h>
 #include "../GMPxx/BigInt.h"
 #include "d.h"
 
