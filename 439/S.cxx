@@ -18,13 +18,22 @@ BigInt S(const BigInt N) {
 	BigInt result[4];
 	for(int i = 0; i < 4; i++)
 		result[i] = BigInt();
+	BigInt splitN = N / 4;
 	#pragma omp parallel
 	{
-		int id = omp_get_thread_num();
-		for(BigInt i = BigInt(1); i <= N; i++) { // TODO
-			for(BigInt j = BigInt(1); j <= N; j++) {
-				result[id] += d(i * j);
+		const unsigned int id = omp_get_thread_num();
+		BigInt i = BigInt();
+		BigInt borderR = splitN * (id + 1);
+		if(borderR > N) borderR = N;
+		for(i = splitN * id + 1; i <= borderR; i++) {
+			BigInt max = BigInt(), temsum = BigInt();
+			for(BigInt j = BigInt(1); j <= i; j++) {
+				max = d(i * j);
+				temsum += max;
 			}
+			temsum *= 2;
+			temsum -= max;
+			result[id] += temsum;
 		}
 	}
 	return (result[0] + result[1] + result[2] + result[3]);
