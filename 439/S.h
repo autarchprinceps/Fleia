@@ -15,6 +15,7 @@
 #ifndef s_h
 #define s_h
 #include <omp.h>
+#include <unistd.h>
 #include "../GMPxx/BigInt.h"
 #include "d.h"
 
