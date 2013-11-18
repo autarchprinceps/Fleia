@@ -16,11 +16,13 @@
 
 BigInt d(const BigInt N) {
 	BigInt sum = BigInt();
-	for(BigInt i = BigInt(1); i <= N / 2; i++) {
-		if(N % i == 0) {
-			sum += i;
+	for(BigInt i = BigInt(1); i * i <= N; i++) {
+		if((N % i) == 0) {
+			if(i * i == N)
+				sum += i;
+			else
+				sum += (i + N / i);
 		}
 	}
-	sum += N;
 	return sum;
 }

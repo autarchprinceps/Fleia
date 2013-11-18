@@ -21,5 +21,5 @@
 
 using namespace fleiamath;
 
-BigInt S(const BigInt N);
+BigInt* S(const BigInt N);
 #endif
