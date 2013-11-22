@@ -10,15 +10,20 @@ $(LIBDIR):
 $(OBJDIR):
 	mkdir -p $@
 
-test: test.cxx
-	$(CXX) -Llib/ -lgmpxx -O3 -o $@ $+ 
+test: test.cxx $(LIBDIR)libgmpxx.so
+	$(CXX) -Llib/ -lgmpxx -o $@ $+ 
 
-$(OBJDIR)BigInt.o: BigInt.cxx
-	$(CXX) -fPIC -O3 -o $@ -c $+
+primetest: primetest.cxx
+	clang++ -o primetest -lgmp prime.cxx BigInt.cxx primetest.cxx
+
+$(OBJDIR)BigInt.o: BigInt.cxx $(LIBDIR) $(OBJDIR)
+	$(CXX) -fPIC -o $@ -c $+
 	
 $(LIBDIR)libgmpxx.so: $(OBJDIR)BigInt.o
-	$(CXX) -shared -lgmp -O3 -o $@ $+
+	$(CXX) -shared -lgmp -o $@ $+
 
+install: 
+	cp $(LIBDIR)libgmpxx.so /usr/lib64/libgmpxx.so
 
 clean:
 	rm -rf $(OBJDIR) $(LIBDIR)	

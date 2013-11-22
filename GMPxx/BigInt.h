@@ -25,6 +25,7 @@ namespace fleiamath {
 		public:
 			BigInt();
 			BigInt(const unsigned long initialValue);
+            BigInt(BigInt const& initialValue);
 			~BigInt();
 			mpz_t value;
 			operator string() const;
