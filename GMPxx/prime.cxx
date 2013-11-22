@@ -43,7 +43,6 @@ namespace fleiamath{
             if(isPrime(i))
             {
                 list.push_back(i);
-                cout << n << " "<<  i << endl;
                 end = i;
             }
             i+=2;
