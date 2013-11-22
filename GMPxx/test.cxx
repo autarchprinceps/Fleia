@@ -78,4 +78,7 @@ int main() {
 	cout << "(a * 0) " << (a * 0) << endl;
 	cout << "(a - 0) " << (a - 0) << endl;
 	cout << "(a += 0) " << (a += 0) << endl;
+    cout << "functions" << endl;
+    a = 101;
+    cout << "a.sqrt() "<< a.sqrt()<< endl;
 }

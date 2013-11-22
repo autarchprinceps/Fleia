@@ -15,7 +15,7 @@
 
 namespace fleiamath {
 	BigInt::BigInt() {
-		mpz_init(value);
+		mpz_init_set_ui(value,0);
 	}
 
 	BigInt::BigInt(const unsigned long initialValue) {
@@ -43,19 +43,19 @@ namespace fleiamath {
 		return !mpz_cmp_ui(this->value, 0);
     }
 	*/
-	BigInt BigInt::pow(const unsigned long exponent) {
+	BigInt BigInt::pow(const unsigned long exponent)const {
 		BigInt result = BigInt();
 		mpz_pow_ui(result.value, this->value, exponent);
 		return result;
 	}
 
-	BigInt BigInt::sqrt() {
+	BigInt BigInt::sqrt()const {
 		BigInt result = BigInt();
 		mpz_sqrt(result.value, this->value);
 		return result;
 	}
 
-	BigInt BigInt::root(const unsigned long nth) {
+	BigInt BigInt::root(const unsigned long nth)const {
 		BigInt result = BigInt();
 		mpz_root(result.value, this->value, nth);
 		return result;

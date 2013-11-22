@@ -34,9 +34,9 @@ namespace fleiamath {
 
             BigInt& operator = (const BigInt& b);
             BigInt& operator = (const unsigned long);
-			BigInt pow(const unsigned long exponent);
-			BigInt sqrt();
-			BigInt root(const unsigned long nth);
+			BigInt pow(const unsigned long exponent)const;
+			BigInt sqrt()const;
+			BigInt root(const unsigned long nth)const;
 	};
 	BigInt operator + (const BigInt& a, const BigInt& b);
 	BigInt operator * (const BigInt& a, const BigInt& b);
