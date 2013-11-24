@@ -20,7 +20,7 @@ BigInt* S(const BigInt N) {
 		for(BigInt ii = BigInt(1); ii <= N; ii++) {
 			BigInt maxs = BigInt(), tempsum = BigInt();
 			for(BigInt jj = BigInt(1); jj <= ii; jj++) {
-				maxs = d(ii * jj);
+				maxs = d(ii, jj);
 				tempsum += maxs;
 			}
 			tempsum *= 2;
@@ -52,7 +52,7 @@ BigInt* S(const BigInt N) {
 			for(i = (id == 0) ? 1 : (split[id - 1] + 1); i <= split[id]; i++) {
 				BigInt max = BigInt(), temsum = BigInt();
 				for(BigInt j = BigInt(1); j <= i; j++) {
-					max = d(i * j);
+					max = d(i, j);
 					temsum += max;
 				}
 				temsum *= 2;
