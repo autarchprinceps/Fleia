@@ -22,12 +22,12 @@ namespace fleiamath {
 		mpz_init_set_ui(value, initialValue);
 	}
     
-    BigInt::BigInt(BigInt const& initialValue){
+    BigInt::BigInt(const BigInt& initialValue){
         mpz_init_set(value, initialValue.value);
     }
 
 	BigInt::~BigInt() {
-    	//mpz_clear(value); //WHY THE BLOODY HELL DOES IT THROWS CORUPPTION ERRORS
+    	mpz_clear(value); //WHY THE BLOODY HELL DOES IT THROWS CORUPPTION ERRORS
 	}
 
 	BigInt::operator string() const {

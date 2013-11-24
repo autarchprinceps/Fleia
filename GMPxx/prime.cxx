@@ -99,7 +99,7 @@ namespace fleiamath{
     BigInt d(BigInt& a,BigInt& b){
         vector<BigInt> pfa = getPrimeFactors(a);
         vector<BigInt> pfb = getPrimeFactors(b);
-        pfa = unifyFactorLists(pfb,pfa);
+        vector<BigInt> pf = unifyFactorLists(pfb,pfa);
 
         set<BigInt,BigInt::BigInt_compare> dSet;
         dSet.insert(BigInt(1));
@@ -107,7 +107,7 @@ namespace fleiamath{
         BigInt result = BigInt(0);
         BigInt target = a*b;
 
-        for (std::vector<BigInt>::iterator it = pfa.begin(); it!=pfa.end(); ++it){
+        for (std::vector<BigInt>::iterator it = pf.begin(); it!=pf.end(); ++it){
             for(BigInt i = 1;;i++)
             {
                 if(target %((*it)*i) == 0)
