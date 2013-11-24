@@ -37,7 +37,11 @@ namespace fleiamath {
 			BigInt pow(const unsigned long exponent)const;
 			BigInt sqrt()const;
 			BigInt root(const unsigned long nth)const;
-	};
+            struct BigInt_compare {
+                bool operator() (const BigInt& lhs,const BigInt& rhs) const;
+            };
+    };
+            
 	BigInt operator + (const BigInt& a, const BigInt& b);
 	BigInt operator * (const BigInt& a, const BigInt& b);
 	BigInt operator - (const BigInt& a, const BigInt& b);

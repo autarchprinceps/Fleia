@@ -27,7 +27,7 @@ namespace fleiamath {
     }
 
 	BigInt::~BigInt() {
-	//	mpz_clear(value); WHY THE BLOODY HELL DOES IT THROWS CORUPPTION ERRORS
+    	//mpz_clear(value); //WHY THE BLOODY HELL DOES IT THROWS CORUPPTION ERRORS
 	}
 
 	BigInt::operator string() const {
@@ -60,6 +60,10 @@ namespace fleiamath {
 		mpz_root(result.value, this->value, nth);
 		return result;
 	}
+    
+    bool BigInt::BigInt_compare::operator() (const BigInt& lhs, const BigInt& rhs) const{
+        return lhs < rhs;
+    }
 
 	ostream& operator << (ostream& os, const BigInt& a) {
 		os << (string)a;

@@ -21,17 +21,26 @@
 #include <iostream>
 
 using namespace fleiamath;
-using namespace fleiamath;
 
 int main(void){
-    PrimeList pl = PrimeList();
-    BigInt n = BigInt(1200000);
-    cout << n << endl;
-    pl.calcPrimesUntil(n);
-    cout << "isPrime(n)" << endl;
-    pl.isPrime( n ); 
-    cout << "print list" << endl;
-    pl.printList();
+    BigInt result = BigInt(0);
+    for(BigInt i = BigInt(1);i <= 100; i++)
+    {
+        for(BigInt j = BigInt(1); j <= 100; j++)
+        {
+            result +=d(i,j);
+            ////cout <<"d("<<i<<","<<j<<") "<< d(i,j) << endl;
+        }
+    }
+    cout << result << endl;
+
+    //pl.printList();
+    //pl.printList(list);
+    //pl.calcPrimesUntil(n);
+    //cout << "isPrime(n)" << endl;
+    //pl.isPrime( n ); 
+    //cout << "print list" << endl;
+    //pl.printList();
 
 
     return 0;
