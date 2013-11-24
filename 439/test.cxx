@@ -22,8 +22,8 @@ int main(int argc, char** argv) {
 	/** doesn't work with prime d
 	 * cout << "d accumulation" << endl;
 	 * cout << (d(BigInt(1)) + d(BigInt(2)) * 2 + d(BigInt(3)) * 2 + d(BigInt(4)) + d(BigInt(6)) * 2 + d(BigInt(9)));
+	 * cout << " ?= 59" << endl;
 	 */
-	cout << " ?= 59" << endl; 
 	cout << "S(3)" << endl;
 	cout << *S(BigInt(3));
 	cout << " ?= 59" << endl;
