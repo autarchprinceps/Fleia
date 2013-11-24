@@ -4,7 +4,7 @@ CXX = g++
 run: sum
 	OMP_NUM_THREADS=4 ./sum
 
-sum: S.cxx d.cxx test.cxx ../GMPxx/BigInt.cxx 
+sum: S.cxx test.cxx ../GMPxx/BigInt.cxx ../GMPxx/prime.cxx
 	$(CXX) -O3 -lgmp -lecm -fopenmp -o $@ $+
 
 sumc: SumSumDivisor.c
