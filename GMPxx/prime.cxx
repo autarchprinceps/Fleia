@@ -117,8 +117,8 @@ namespace fleiamath{
                 if(target % divisor == 0)
                 {
                     dSet.insert(divisor);
+                	if(divisor == target) break;
                 }
-                if(divisor == target) break;
                 divisor += *it; 
             }
         }
