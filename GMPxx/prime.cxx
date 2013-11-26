@@ -15,6 +15,8 @@
  *
  * =====================================================================================
  */
+
+
 #include "prime.hxx"
 #include "iostream"
 
@@ -106,15 +108,18 @@ namespace fleiamath{
 
         BigInt result = BigInt(0);
         BigInt target = a*b;
+        BigInt divisor= BigInt(0);
 
         for (std::vector<BigInt>::iterator it = pf.begin(); it!=pf.end(); ++it){
-            for(BigInt i = 1;;i++)
+            divisor = *it;
+            while(true)
             {
-                if(target %((*it)*i) == 0)
+                if(target % divisor == 0)
                 {
-                    dSet.insert((*it)*i);
+                    dSet.insert(divisor);
                 }
-                if(((*it)*i) == target) break;
+                if(divisor == target) break;
+                divisor += *it; 
             }
         }
 
