@@ -14,6 +14,7 @@ perf: S.cxx test.cxx ../GMPxx/BigInt.cxx ../GMPxx/prime.cxx
 	$(CXX) -pg -lgmp -lecm -fopenmp -o $@ $+
 	OMP_NUM_THREADS=4 ./perf
 	gprof ./perf gmon.out > analysis.txt
+	gprof2dot analysis.txt | dot -Tsvg -o analysis.svg
 
 runc: sumc
 	OMP_NUM_THREADS=4 ./sumc
