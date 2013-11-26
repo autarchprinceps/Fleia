@@ -15,6 +15,7 @@
 #include "S.h"
 
 BigInt* S(const BigInt N) {
+    getPrimeFactors(N);
 	if(N < 10) {
 		BigInt* sum = new BigInt();
 		for(BigInt ii = BigInt(1); ii <= N; ii++) {
