@@ -64,13 +64,10 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClInclude Include="..\..\..\439\d.h" />
     <ClInclude Include="..\..\..\439\S.h" />
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="..\..\..\439\d.cxx" />
     <ClCompile Include="..\..\..\439\S.cxx" />
-    <ClCompile Include="..\..\..\439\SumSumDivisor.c" />
     <ClCompile Include="..\..\..\439\test.cxx" />
   </ItemGroup>
   <ItemGroup>
