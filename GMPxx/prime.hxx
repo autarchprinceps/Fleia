@@ -37,6 +37,6 @@ namespace fleiamath{
     BigInt getDivisorCount(BigInt& a);
     set<BigInt,BigInt::BigInt_compare> getDivisor(BigInt& a);
     
-    BigInt d(BigInt& a,BigInt& b);
+    BigInt d(vector<BigInt> pfa,BigInt& b);
 
 }
