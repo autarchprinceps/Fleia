@@ -98,8 +98,7 @@ namespace fleiamath{
     }
 
 
-    BigInt d(BigInt& a,BigInt& b){
-        vector<BigInt> pfa = getPrimeFactors(a);
+    BigInt d(vector<BigInt> pfa,BigInt& b){
         vector<BigInt> pfb = getPrimeFactors(b);
         vector<BigInt> pf = unifyFactorLists(pfb,pfa);
 
