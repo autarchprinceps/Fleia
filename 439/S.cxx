@@ -34,6 +34,27 @@ BigInt* S(const BigInt N) {
 		return sum;
 	} else {
 		omp_set_num_threads(4);
+		BigInt result[4];
+		for (int t = 0; t < 4; t++) result[t] = BigInt();
+		#pragma omp parallel
+		{
+			const unsigned int id = omp_get_thread_num();
+			for (BigInt i = BigInt(1); i <= N; i++) {
+				if (i % 4 == id) {
+					BigInt max = BigInt(), temsum = BigInt();
+					vector<BigInt> pfa = getPrimeFactors(i);
+					for (BigInt j = BigInt(1); j <= i; j++) {
+						max = d(pfa, j);
+						temsum += max;
+					}
+					temsum *= 2;
+					temsum -= max;
+					result[id] += temsum;
+				}
+			}
+		}
+		/*
+		omp_set_num_threads(4);
 		BigInt result[4], split[4];
 		for(int t = 0; t < 4; t++) {
 			result[t] = BigInt();
@@ -62,7 +83,7 @@ BigInt* S(const BigInt N) {
 				result[id] += temsum;
 				// cout << "[DEBUG] i loop " << id << " " << i << " " << (result[0] + result[1] + result[2] + result[3]) << endl;
 			}
-		}
+		}*/
 		BigInt* res = new BigInt();
 		*res = (result[0] + result[1] + result[2] + result[3]);
 		return res;

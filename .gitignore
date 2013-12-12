@@ -2,8 +2,6 @@
 # Custom
 ####################
 
-Project/*
-
 # Object files
 *.o
 *.ko
