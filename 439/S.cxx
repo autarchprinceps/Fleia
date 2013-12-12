@@ -52,8 +52,9 @@ BigInt* S(const BigInt N) {
 			BigInt i = BigInt();
 			for(i = (id == 0) ? 1 : (split[id - 1] + 1); i <= split[id]; i++) {
 				BigInt max = BigInt(), temsum = BigInt();
+				vector<BigInt> pfi = getPrimeFactors(i);
 				for(BigInt j = BigInt(1); j <= i; j++) {
-					max = d(i, j);
+					max = d(pfi, j);
 					temsum += max;
 				}
 				temsum *= 2;

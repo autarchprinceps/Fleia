@@ -24,13 +24,11 @@ int main(int argc, char** argv) {
 	 * cout << (d(BigInt(1)) + d(BigInt(2)) * 2 + d(BigInt(3)) * 2 + d(BigInt(4)) + d(BigInt(6)) * 2 + d(BigInt(9)));
 	 * cout << " ?= 59" << endl;
 	 */
-	/*cout << "S(3)" << endl;
+	cout << "S(3)" << endl;
 	cout << *S(BigInt(3));
 	cout << " ?= 59" << endl;
 	cout << "S(200)" << endl;
-	cout << *S(BigInt(200)) << endl;*/
-	BigInt a = BigInt(4000);
-	d(a, a);
+	cout << *S(BigInt(200)) << endl;
 	/*cout << "S(1000)" << endl;
 	cout << *S(BigInt(1000));
 	cout << " ?= 563576517282" << endl;*/
